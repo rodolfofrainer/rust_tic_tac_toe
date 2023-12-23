@@ -5,7 +5,9 @@ fn main() {
     println!("Welcome to Tic Tac Toe!");
     print_board(&values);
     loop {
+
         println!("Please enter a position to place your X (1-9):");
+        println!("----------------------------------------------");
 
         let mut position = String::new();
 
@@ -52,10 +54,13 @@ fn main() {
         }
         values[next_position] = "O";
         if let Some(winner) = check_winner(&values) {
+            print_board(&values);
             println!("{} wins!", winner);
             break;
         }
+        
         print_board(&values);
+        println!("");
     }
 }
 
